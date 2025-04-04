@@ -1,0 +1,487 @@
+:root {
+    /* Light mode colors */
+    --background-light: #f7f7f7;
+    --card-bg-light: #ffffff;
+    --text-primary-light: #2c3e50;
+    --text-secondary-light: #555555;
+    --accent-light: #3498db;
+    --accent-hover-light: #2980b9;
+    --border-light: #e0e0e0;
+    --error-light: #e74c3c;
+    --success-light: #27ae60;
+    --form-bg-light: #ffffff;
+    --input-bg-light: #f9f9f9;
+    --input-border-light: #ddd;
+    --delete-task-light: #ff0000;
+    --input-focus-light: #3498db;
+    --button-text-light: #ffffff;
+    --task-border-light: #3498db;
+    --task-done-bg-light: #e1f7e1;
+    --task-done-text-light: #27ae60;
+    --task-pending-bg-light: #fff3e0;
+    --task-pending-text-light: #e67e22;
+    --pagination-bg-light: #ffffff;
+    --pagination-text-light: #3498db;
+    --pagination-active-bg-light: #3498db;
+    --pagination-active-text-light: #ffffff;
+    
+    /* Dark mode colors */
+    --background-dark: #1a1a2e;
+    --card-bg-dark: #222439;
+    --text-primary-dark: #e0e0e0;
+    --text-secondary-dark: #b0b0b0;
+    --accent-dark: #4a9fe6;
+    --accent-hover-dark: #6cb0eb;
+    --border-dark: #373752;
+    --error-dark: #ff6b6b;
+    --success-dark: #2ecc71;
+    --form-bg-dark: #222439;
+    --input-bg-dark: #2c2c44;
+    --delete-task-dark: #ff0000;
+    --input-border-dark: #373752;
+    --input-focus-dark: #4a9fe6;
+    --button-text-dark: #ffffff;
+    --task-border-dark: #4a9fe6;
+    --task-done-bg-dark: #1e3a2b;
+    --task-done-text-dark: #2ecc71;
+    --task-pending-bg-dark: #3a2c1e;
+    --task-pending-text-dark: #f39c12;
+    --pagination-bg-dark: #222439;
+    --pagination-text-dark: #4a9fe6;
+    --pagination-active-bg-dark: #4a9fe6;
+    --pagination-active-text-dark: #ffffff;
+    
+    /* Default to light mode */
+    --background: var(--background-light);
+    --card-bg: var(--card-bg-light);
+    --text-primary: var(--text-primary-light);
+    --text-secondary: var(--text-secondary-light);
+    --accent: var(--accent-light);
+    --accent-hover: var(--accent-hover-light);
+    --border: var(--border-light);
+    --error: var(--error-light);
+    --success: var(--success-light);
+    --form-bg: var(--form-bg-light);
+    --input-bg: var(--input-bg-light);
+    --input-border: var(--input-border-light);
+    --input-focus: var(--input-focus-light);
+    --button-text: var(--button-text-light);
+    --task-border: var(--task-border-light);
+    --task-done-bg: var(--task-done-bg-light);
+    --task-done-text: var(--task-done-text-light);
+    --task-pending-bg: var(--task-pending-bg-light);
+    --task-pending-text: var(--task-pending-text-light);
+    --task-delete: var(--delete-task-light);
+    --pagination-bg: var(--pagination-bg-light);
+    --pagination-text: var(--pagination-text-light);
+    --pagination-active-bg: var(--pagination-active-bg-light);
+    --pagination-active-text: var(--pagination-active-text-light);
+  }
+  
+  /* Base styles */
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+  
+  body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    background-color: var(--background);
+    color: var(--text-primary);
+    padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+  
+  /* Header styles */
+  h1 {
+    color: var(--text-primary);
+    margin-bottom: 20px;
+    font-size: 2.5rem;
+    border-bottom: 2px solid var(--accent);
+    padding-bottom: 10px;
+  }
+  
+  h2 {
+    color: var(--text-primary);
+    margin-bottom: 10px;
+    font-size: 1.5rem;
+  }
+  
+  p {
+    color: var(--text-secondary);
+    margin-bottom: 15px;
+    line-height: 1.5;
+  }
+  
+  /* Button styles */
+  .btn, button, .create-btn, .view-link, .edit-link, .delete-btn {
+    display: inline-block;
+    background-color: var(--accent);
+    color: var(--button-text);
+    padding: 10px 15px;
+    border-radius: 5px;
+    text-decoration: none;
+    border: none;
+    font-size: 1rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .btn:hover, button:hover, .create-btn:hover, .view-link:hover, .edit-link:hover {
+    background-color: var(--accent-hover);
+  }
+  
+  .delete-btn {
+    background-color: var(--error);
+  }
+  
+  .delete-btn:hover {
+    background-color: #c0392b;
+  }
+  
+  /* Create task button */
+  .create-btn {
+    margin-bottom: 30px;
+  }
+  
+  /* Task card styles */
+  .tasks_row {
+    background-color: var(--card-bg) !important;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    margin-bottom: 20px;
+    border-left: 5px solid var(--task-border);
+    transition: transform 0.2s ease;
+  }
+  
+  .tasks_row:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+  }
+  
+  .task-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 15px;
+    padding-top: 15px;
+    border-top: 1px solid var(--border);
+  }
+  
+  .task-actions {
+    display: flex;
+    gap: 10px;
+  }
+  
+  /* Task status */
+  .task-status {
+    font-style: italic;
+    font-weight: 500;
+    padding: 5px 10px;
+    border-radius: 20px;
+    font-size: 0.9rem;
+  }
+  
+  .status-done {
+    background-color: var(--task-done-bg);
+    color: var(--task-done-text);
+  }
+  
+  .status-pending {
+    background-color: var(--task-pending-bg);
+    color: var(--task-pending-text);
+  }
+  
+  /* View task link */
+  .view-link {
+    color: var(--button-text);
+    text-decoration: none;
+  }
+  
+  .edit-link {
+    background-color: #f39c12;
+  }
+  
+  .edit-link:hover {
+    background-color: #d35400;
+  }
+  
+  /* Pagination styles */
+  .pagination {
+    display: flex;
+    justify-content: center;
+    margin-top: 30px;
+    list-style: none;
+  }
+  
+  .pagination li {
+    margin: 0 5px;
+  }
+  
+  .pagination a, .pagination span {
+    display: inline-block;
+    padding: 8px 12px;
+    background-color: var(--pagination-bg);
+    border: 1px solid var(--border);
+    color: var(--pagination-text);
+    text-decoration: none;
+    border-radius: 4px;
+    transition: all 0.3s ease;
+  }
+  
+  .pagination a:hover {
+    background-color: var(--pagination-active-bg);
+    color: var(--pagination-active-text);
+  }
+  
+  .pagination .active span {
+    background-color: var(--pagination-active-bg);
+    color: var(--pagination-active-text);
+    border-color: var(--pagination-active-bg);
+  }
+  
+  /* Form styling */
+  form {
+    background-color: var(--form-bg);
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    padding: 1.5rem;
+    max-width: 600px;
+    margin: 0 auto;
+    border: 1px solid var(--border);
+  }
+
+  .delete-task {
+    background-color: transparent;
+    border-radius: 0;
+    box-shadow: 0 2px 10px transparent;
+    padding: 0;
+    max-width: 0;
+    margin: 30px 0 0 0;
+    border: none;
+  }
+
+  .delete-task button{
+    background-color: var(--task-delete);
+  }
+  
+  .form-group {
+    margin-bottom: 1.5rem;
+  }
+  
+  label {
+    display: block;
+    margin-bottom: 0.5rem;
+    color: var(--text-primary);
+    font-weight: 500;
+  }
+  
+  input[type="text"],
+  textarea {
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid var(--input-border);
+    border-radius: 4px;
+    background-color: var(--input-bg);
+    color: var(--text-primary);
+    font-size: 1rem;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  input[type="text"]:focus,
+  textarea:focus {
+    outline: none;
+    border-color: var(--input-focus);
+    box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.25);
+  }
+  
+  textarea {
+    min-height: 150px;
+    resize: vertical;
+  }
+  
+  /* Checkbox styling */
+  .checkbox-group {
+    display: flex;
+    align-items: center;
+    margin-bottom: 1.5rem;
+  }
+  
+  .checkbox-group label {
+    margin-bottom: 0;
+    margin-right: 10px;
+  }
+  
+  input[type="checkbox"] {
+    appearance: none;
+    width: 20px;
+    height: 20px;
+    border: 2px solid var(--input-border);
+    border-radius: 4px;
+    background-color: var(--input-bg);
+    cursor: pointer;
+    position: relative;
+    vertical-align: middle;
+  }
+  
+  input[type="checkbox"]:checked {
+    background-color: var(--accent);
+    border-color: var(--accent);
+  }
+  
+  input[type="checkbox"]:checked::after {
+    content: "✓";
+    position: absolute;
+    color: white;
+    font-size: 14px;
+    left: 4px;
+    top: -1px;
+  }
+  
+  /* Error message styling */
+  .error-list {
+    background-color: rgba(231, 76, 60, 0.1);
+    border-left: 4px solid var(--error);
+    border-radius: 4px;
+    padding: 1rem;
+    margin-bottom: 1.5rem;
+    color: var(--error);
+  }
+  
+  .error-list ul {
+    margin: 0.5rem 0 0 1.5rem;
+  }
+  
+  .error-list li {
+    margin-bottom: 0.25rem;
+  }
+  
+  /* Show page specific styles */
+  .task-detail {
+    background-color: var(--card-bg);
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    padding: 25px;
+    margin-bottom: 20px;
+    border-left: 5px solid var(--task-border);
+  }
+  
+  .task-detail-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid var(--border);
+  }
+  
+  .task-detail-content {
+    margin-bottom: 20px;
+  }
+  
+  .task-detail-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 20px;
+    padding-top: 20px;
+    border-top: 1px solid var(--border);
+  }
+  
+  .timestamps {
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    margin-top: 15px;
+  }
+  
+  .back-link {
+    display: inline-block;
+    margin-top: 20px;
+    color: var(--accent);
+    text-decoration: none;
+  }
+  
+  .back-link:hover {
+    text-decoration: underline;
+  }
+  
+  /* Animation for status messages */
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-10px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  
+  .alert {
+    animation: fadeIn 0.3s ease forwards;
+    padding: 0.75rem;
+    margin-bottom: 1rem;
+    border-radius: 4px;
+    background-color: var(--success);
+    color: white;
+  }
+  
+  /* Responsive */
+  @media screen and (max-width: 768px) {
+    body {
+      padding: 15px;
+    }
+    
+    h1 {
+      font-size: 2rem;
+    }
+    
+    form {
+      padding: 1rem;
+    }
+    
+    .task-footer, .task-detail-footer {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 15px;
+    }
+    
+    .task-status {
+      margin-bottom: 10px;
+    }
+    
+    .task-actions {
+      width: 100%;
+      justify-content: space-between;
+    }
+
+    /* Dark mode media query */
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --background: var(--background-dark);
+      --card-bg: var(--card-bg-dark);
+      --text-primary: var(--text-primary-dark);
+      --text-secondary: var(--text-secondary-dark);
+      --accent: var(--accent-dark);
+      --accent-hover: var(--accent-hover-dark);
+      --border: var(--border-dark);
+      --error: var(--error-dark);
+      --success: var(--success-dark);
+      --form-bg: var(--form-bg-dark);
+      --input-bg: var(--input-bg-dark);
+      --input-border: var(--input-border-dark);
+      --input-focus: var(--input-focus-dark);
+      --button-text: var(--button-text-dark);
+      --task-border: var(--task-border-dark);
+      --task-done-bg: var(--task-done-bg-dark);
+      --task-done-text: var(--task-done-text-dark);
+      --task-pending-bg: var(--task-pending-bg-dark);
+      --task-pending-text: var(--task-pending-text-dark);
+      --task-delete: var(--delete-task-dark);
+      --pagination-bg: var(--pagination-bg-dark);
+      --pagination-text: var(--pagination-text-dark);
+      --pagination-active-bg: var(--pagination-active-bg-dark);
+      --pagination-active-text: var(--pagination-active-text-dark);
+    }
+  }
+}
